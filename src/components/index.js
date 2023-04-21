@@ -1,4 +1,5 @@
 import {CanvasModel} from "./canvas"
+import {CustomButton} from "./CustomButton"
 
 
-export {CanvasModel}
+export {CanvasModel, CustomButton}
