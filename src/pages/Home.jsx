@@ -10,9 +10,14 @@ import {
 
 
 const Home = () => {
+  const snap = useSnapshot(state);
   return (
     <>
-        
+        <AnimatePresence>
+          {snap.intro && (
+            <></>
+          )}
+        </AnimatePresence>
     </>
   )
 }
