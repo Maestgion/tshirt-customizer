@@ -5,7 +5,7 @@ import config from '../config/config'
 import { AiPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 import state from '../store'
 import {download} from "../assets"
-import { downloadCanvasToImage } from '../config/helpers'
+import { downloadCanvasToImage, reader  } from '../config/helpers'
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 
