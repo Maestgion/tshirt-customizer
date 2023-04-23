@@ -34,9 +34,48 @@ const Customizer = () => {
         readFile = {readFile}
         />
       case "aipicker":
-        return <AiPicker />
+        return <AiPicker 
+        prompt = {prompt}
+        setPrompt={setPrompt}
+        generatingImg={generatingImg}
+        handleSubmit={handleSubmit}
+        />
       default:
         return null;
+    }
+  }
+
+  const handleSubmit = async (type)=>{
+    if(!prompt)
+    {
+      return alert("Hey, Please enter a prompt!");
+    }
+
+    try{
+
+      setGeneratingImg(true)
+
+      const res = await fetch('http://localhost:8000/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+        })
+        })
+
+        const data = await res.json()
+
+        handleDecals(type, `data:image/png;base64,${data.photo}`)
+
+    }catch(e){
+
+      alert(e)
+
+    }finally{
+      setGeneratingImg(false)
+      setActiveEditorTab("")
     }
   }
 
